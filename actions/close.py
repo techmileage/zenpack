@@ -9,16 +9,18 @@ class CloseTicket(BaseAction):
     """
     def run(self, subject, ticket_id):
         assert subject or ticket_id, 'subject or ticket id is required'
+        if not subject:
+            subject = ''
         try:
             # search for the tickets with subject match
-            tics = self.client.search(str(ticket_id), subject=subject, type='ticket')
+            tics = self.client.search(ticket_id, subject=subject, type='ticket')
             for tic in tics:
                 # update the ticket with status closed
                 tic.status = 'closed'
                 # comment on the ticket
                 tic.comment = Comment(body='Closing the ticket')
                 job_status = self.client.tickets.update(tic)
-                print('Closed Ticket Status: ', job_status['status'])
+                print('Closed Ticket Status: ', job_status)
         except RecordNotFoundException as e:
             print('Ticket not found with subject {}'.format(subject))
         except APIException as e:
@@ -27,4 +29,3 @@ class CloseTicket(BaseAction):
         except Exception as e:
             print('General Exception {} occured while updating Ticket with subject {}'
                   .format(e, subject))
-        pass

@@ -7,9 +7,11 @@ class SearchNewTicketsAndUpdate(BaseAction):
     """ Search for new tickets and assign it """
     def run(self, subject, ticket_id):
         assert subject or ticket_id, 'subject or ticket id is required'
+        if not subject:
+            subject = ''
         try:
             # search for the tickets that match the subject line and with the status 'new'
-            tics = self.client.search(str(ticket_id), subject=subject, type='ticket')
+            tics = self.client.search(ticket_id, subject=subject, type='ticket')
             print('total tickets found: ', tics.count)
             # process the list of ticket(s)
             for tic in tics:
