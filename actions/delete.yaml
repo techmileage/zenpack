@@ -1,7 +1,7 @@
 ---
 name: "delete"
 runner_type: "python-script"
-description: "Delete an entry from a ServiceNow Table"
+description: "Delete an entry from Zendesk"
 enabled: true
 entry_point: "delete.py"
 parameters:

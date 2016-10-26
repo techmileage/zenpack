@@ -10,6 +10,7 @@ class SearchNewTicketsAndUpdate(BaseAction):
         try:
             # search for the tickets that match the subject line and with the status 'new'
             tics = self.client.search(ticket_id, subject=subject, type='ticket', status='new')
+            print('total tickets found: ', tics.count)
             # process the list of ticket(s)
             for tic in tics:
                 # Update the status to pending

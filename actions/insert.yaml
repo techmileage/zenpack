@@ -12,4 +12,4 @@ parameters:
   description:
     type: "string"
     description: "Description of the ticket"
-    required: false 
+    required: true 
