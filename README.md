@@ -114,4 +114,4 @@ result:
   
 
 ### screenshot of the zendesk support ticket we worked on
-![screenshot of the zendesk support ticket we worked on](  /home/kiran/Desktop/zendesk.png) (zendesk.png)
+![(zendesk.png)
