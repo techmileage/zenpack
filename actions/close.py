@@ -11,7 +11,7 @@ class CloseTicket(BaseAction):
         assert subject or ticket_id, 'subject or ticket id is required'
         try:
             # search for the tickets with subject match
-            tics = self.client.search(ticket_id, subject=subject, type='ticket')
+            tics = self.client.search(str(ticket_id), subject=subject, type='ticket')
             for tic in tics:
                 # update the ticket with status closed
                 tic.status = 'closed'

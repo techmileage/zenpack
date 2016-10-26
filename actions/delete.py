@@ -8,7 +8,7 @@ class DeleteTicket(BaseAction):
     def run(self, ticket_id):
         try:
             # find the matching ticket (retuns generator)
-            tic = self.client.search(ticket_id, type='ticket')
+            tic = self.client.search(str(ticket_id), type='ticket')
             # delete the ticket now
             job_status = self.client.tickets.delete(tic.next())
             print('Delete Ticket Status: ', job_status)

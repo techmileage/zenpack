@@ -9,7 +9,7 @@ class SearchNewTicketsAndUpdate(BaseAction):
         assert subject or ticket_id, 'subject or ticket id is required'
         try:
             # search for the tickets that match the subject line and with the status 'new'
-            tics = self.client.search(ticket_id, subject=subject, type='ticket', status='new')
+            tics = self.client.search(str(ticket_id), subject=subject, type='ticket', status='open')
             print('total tickets found: ', tics.count)
             # process the list of ticket(s)
             for tic in tics:
