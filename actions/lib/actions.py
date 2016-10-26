@@ -8,7 +8,8 @@ class BaseAction(Action):
         self.creds = {
             'subdomain': self.config['subdomain'],
             'email': self.config['username'],
-            'token': self.config['token']
+            # 'token': self.config['token']
+            'password': self.config['password']
         }
         self.client = self._get_client()
 
