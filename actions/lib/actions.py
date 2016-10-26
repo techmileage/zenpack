@@ -10,7 +10,7 @@ class BaseAction(Action):
         # build credentials from the config object
         self.creds = {
             'subdomain': self.config['subdomain'],
-            'email': self.config['username'],
+            'email': self.config['email'],
             'password': self.config['password'],
             'token': self.config['token'],
             'oauth_token': self.config['oauth']
