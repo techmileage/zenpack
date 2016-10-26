@@ -114,4 +114,4 @@ result:
   
 
 ### screenshot of the zendesk support ticket we worked on
-![(zendesk.png)
+![(./zendesk.png)
